@@ -45,24 +45,18 @@ define(['pipAPI',  'iat10.js'], function(APIConstructor, iatExtension){
 	    darkImagesLabel ='label2b.jpg';
 	}
     var posWords = API.shuffle([
-	      'Love', 'Cheer', 'Friend', 'Pleasure', 
-	      'Adore', 'Cheerful', 'Friendship', 'Joyful', 
-	      'Smiling','Cherish', 'Excellent', 'Glad', 
-	      'Joyous', 'Spectacular', 'Appealing', 'Delight', 
-	      'Excitement', 'Laughing', 'Attractive','Delightful', 
-	      'Fabulous', 'Glorious', 'Pleasing', 'Beautiful', 
-	      'Fantastic', 'Happy', 'Lovely', 'Terrific', 
-	      'Celebrate', 'Enjoy', 'Magnificent', 'Triumph']);
+		'Liefde', 'Vreugde', 'Vriend', 'Plezier', 'Adoreren', 'Vrolijk', 'Vriendschap', 'Blij', 'Glimlachen', 'Koesteren', 'Uitstekend', 'Blij',
+		'Blij', 'Spectaculair', 'Aantrekkelijk', 'Vreugde', 'Opwinding', 'Lachen', 'Aantrekkelijk', 'Heerlijk', 'Fantastisch', 'Glorieus', 'Aangenaam', 'Mooi',
+		'Geweldig', 'Blij', 'Mooi', 'Fantastisch', 'Vieren', 'Genieten', 'Prachtig', 'Triomf']);
     var negWords = API.shuffle([
-	      'Abuse', 'Grief', 'Poison', 'Sadness', 
-	      'Pain', 'Despise', 'Failure', 'Nasty', 
-	      'Angry', 'Detest', 'Horrible', 'Negative', 
-	      'Ugly', 'Dirty', 'Gross', 'Evil', 
-	      'Rotten','Annoy', 'Disaster', 'Horrific',  
-	      'Scorn', 'Awful', 'Disgust', 'Hate', 
-	      'Humiliate', 'Selfish', 'Tragic', 'Bothersome', 
-	      'Hatred', 'Hurtful', 'Sickening', 'Yucky']);
-
+		'Misbruik', 'Verdriet', 'Vergif', 'Bedroefd',
+		'Pijn', 'Verachten', 'Mislukking', 'Vervelend',
+		'Boos', 'Afschuw hebben van', 'Afschuwelijk', 'Negatief',
+		'Lelijk', 'Vuil', 'Vies', 'Kwaad',
+		'Verrot', 'Ergeren', 'Ramp', 'Afschuwelijk',
+		'Hoon', 'Afschuwelijk', 'Walging', 'Haat',
+		'Vernederen', 'Egoïstisch', 'Tragisch', 'Hinderlijk',
+		'Haat', 'Pijnlijk', 'Walgelijk', 'Vies']);
 
     var darkMedia = []; 
 	for(var dImage = 0; dImage < darkImages.length; dImage++)
