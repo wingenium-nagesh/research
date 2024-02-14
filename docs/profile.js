@@ -11,7 +11,7 @@ define(['questAPI'], function(Quest){
         decline: false,
         declineText: isTouch ? 'Decline' : 'Decline to Answer', 
         autoFocus:true,
-        progressBar:  'Page <%= pagesMeta.number %> out of 3'
+        progressBar:  'Page <%= pagesMeta.number %> van 3'
     });
 	
     /**
@@ -63,12 +63,16 @@ define(['questAPI'], function(Quest){
     });
 
     API.addQuestionsSet('leeftijd',{
-            type: 'slider',
+            type: 'textNumber',
             stem: 'Wat is jouw leeftijd',
             min:18,
             max:70,
-            steps:50
-    });
+            required:true,
+            errorMsg: {
+                max: "Deelnemers moeten tussen 18 en 70 jaar oud zijn",
+                number: "Leeftijd moet een geldig nummer zijn"
+            }
+        });
 
     API.addQuestionsSet('geslacht',{
         inherit : 'basicDropdown',
