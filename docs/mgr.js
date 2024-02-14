@@ -74,7 +74,9 @@ define(['managerAPI', 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe@1.*/da
             name: 'raceiat_instructions',
             templateUrl: 'raceiat_instructions.jst',
             title: 'IAT Instructions',
-            header: 'Implicit Association Test'
+            header: 'Implicit Association Test',
+            //Uncomment the following if you want to end the study here.
+            last:true, 
         }],
 
         explicits: [{
@@ -104,8 +106,11 @@ define(['managerAPI', 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe@1.*/da
         [{ 
             type:'redirect', name:'redirecting', url: 'https://app.prolific.co/submissions/complete?cc=CHYHAOC9' 
             //You can use that to go back to prolific: https://app.prolific.co/submissions/complete?cc=YOURCODE
-        }]
+        }],
 
+        //This task waits until the data are sent to the server.
+        uploading: uploading_task({header: 'just a moment', body:'Please wait, sending data... '})
+        
     });
 
     API.addSequence([
@@ -131,6 +136,7 @@ define(['managerAPI', 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe@1.*/da
             ]
         },
 
+        {inherit: 'uploading'},
         {inherit: 'lastpage'},
         {inherit: 'redirect'}
     ]);
