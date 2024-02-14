@@ -1,10 +1,9 @@
 <%
-	var category2 = global.whiteLabels;
-	var category1 = global.blackLabels;
-	var att2 = 'Good';
-	var att1 = 'Bad';
+	var category2 = 'Lichthuidige mensen';
+	var category1 = 'Donkerhuidige mensen';
+	var att2 = 'Positief';
+	var att1 = 'Negatief';
 %>
-
 
 <div class="panel panel-info" style="margin-top:1em">
 		<div class="panel-heading">
@@ -16,7 +15,7 @@
 
 <div class="panel-body">
 	<p class='lead'>
-<b>Thank you very much for your participation.</b>
+<b>Dank je wel voor je deelname!</b>
 <br/><br/>
 
     In this study, we measured your automatically-activated associations between the concepts '<%=category1%>' and '<%=category2%>' with the concepts '<%=att1%>' and '<%=att2%>'. 
@@ -26,7 +25,7 @@
 	To measure your automatically-activated association, we used the Implicit Association Test (the IAT). 
 	Here are your results:
 	</p>
-	<b><%= global.raceiat.feedback %></b>
+	<b><%= global.skiniat.feedback %></b>
 	<br/><br/>
 
 	<p class='lead'><b>Disclaimer:</b><br/>
