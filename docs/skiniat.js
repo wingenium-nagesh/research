@@ -1,4 +1,4 @@
-define(['pipAPI',  'https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/qualtrics/quiat9.js'], function(APIConstructor, iatExtension){
+define(['pipAPI',  'iat10.js'], function(APIConstructor, iatExtension){
 	
 	var API = new APIConstructor();
 	var set = API.shuffle(['A','B'])[0];
@@ -7,7 +7,7 @@ define(['pipAPI',  'https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/qual
     var lightImagesLabel = [];
     var darkImagesLabel = [];
 	
-	var baseURL = 'https://baranan.github.io/minno-tasks/images/';
+	var baseURL = './images/';
 	  //Fill the sets of words and images for the gay categories, based on the gay-set condition
       if (set == 'A')
 	{
@@ -25,7 +25,6 @@ define(['pipAPI',  'https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/qual
 	    lightImages.push('tone0141a.jpg');
 	    lightImagesLabel = 'label2a.jpg';
 	    darkImagesLabel = 'label1b.jpg';
-
 	}
 
        else if (set == 'B')
@@ -44,7 +43,6 @@ define(['pipAPI',  'https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/qual
 	    lightImages.push('tone0121a.jpg');
 	    lightImagesLabel ='label1a.jpg';
 	    darkImagesLabel ='label2b.jpg';
-
 	}
     var posWords = API.shuffle([
 	      'Love', 'Cheer', 'Friend', 'Pleasure', 
@@ -81,7 +79,7 @@ define(['pipAPI',  'https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/qual
 
     return iatExtension({
 	category1 : {
-	    name : 'Dark Skinned People', //Will appear in the data.
+	    name : 'Donkerhuidige mensen', //Will appear in the data.
 	    title : {
 		media : {image:darkImagesLabel}, //Name of the category presented in the task.
 		css : {color:'#31940F','font-size':'1.8em'}, //Style of the category title.
@@ -93,7 +91,7 @@ define(['pipAPI',  'https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/qual
 		stimulusCss : {color:'#31940F','font-size':'2.3em'}
 	},    
 	category2 :    {
-	    name : 'Light Skinned People', //Will appear in the data.
+	    name : 'Lichthuidige mensen', //Will appear in the data.
 	    title : {
 		media : {image:lightImagesLabel}, //Name of the category presented in the task.
 		css : {color:'#31940F','font-size':'1.8em'}, //Style of the category title.
@@ -105,9 +103,9 @@ define(['pipAPI',  'https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/qual
 	},
 		attribute1 :
 		{
-			name : 'Bad',
+			name : 'Negatief',
 			title : {
-				media : {word : 'Bad'},
+				media : {word : 'Negatief'},
 				css : {color:'#0000FF','font-size':'1.8em'},
 				height : 4 //Used to position the "Or" in the combined block.
 			},
@@ -126,9 +124,9 @@ define(['pipAPI',  'https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/qual
 		},
 		attribute2 :
 		{
-			name : 'Good',
+			name : 'Positief',
 			title : {
-				media : {word : 'Good'},
+				media : {word : 'Positief'},
 				css : {color:'#0000FF','font-size':'1.8em'},
 				height : 4 //Used to position the "Or" in the combined block.
 			},

@@ -1,10 +1,11 @@
-define(['managerAPI', 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe@1.*/datapipe.min.js'], function(Manager) {
+define(['managerAPI', 'datapipeline.js'], function(Manager) {
     let API = new Manager();
 
     API.setName('mgr');
     API.addSettings('skip',true);
 	init_data_pipe(API, 'wGEEFYhKxi2b', {file_type:'csv'});
 
+/*
     //Randomly select which of two sets of category labels to use.
     let raceSet = API.shuffle(['a','b'])[0];
     let blackLabels = [];
@@ -26,9 +27,8 @@ define(['managerAPI', 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe@1.*/da
         blackLabels:blackLabels,
         whiteLabels:whiteLabels,
         //Select randomly what attribute words to see. 
-        //Based on Axt, Feng, & Bar-Anan (2021).
         posWords : API.shuffle([
-            'Love', 'Cheer', 'Friend', 'Pleasure',
+             'Love', 'Cheer', 'Friend', 'Pleasure',
             'Adore', 'Cheerful', 'Friendship', 'Joyful', 
             'Smiling','Cherish', 'Excellent', 'Glad', 
             'Joyous', 'Spectacular', 'Appealing', 'Delight', 
@@ -36,7 +36,7 @@ define(['managerAPI', 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe@1.*/da
             'Fabulous', 'Glorious', 'Pleasing', 'Beautiful', 
             'Fantastic', 'Happy', 'Lovely', 'Terrific', 
             'Celebrate', 'Enjoy', 'Magnificent', 'Triumph'
-        ]), 
+        ]),
         negWords : API.shuffle([
             'Abuse', 'Grief', 'Poison', 'Sadness', 
             'Pain', 'Despise', 'Failure', 'Nasty', 
@@ -47,7 +47,8 @@ define(['managerAPI', 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe@1.*/da
             'Humiliate', 'Selfish', 'Tragic', 'Bothersome', 
             'Hatred', 'Hurtful', 'Sickening', 'Yucky'
         ])
-    });
+    }); 
+*/
 
     API.addTasksSet({
         instructions: [{
@@ -55,25 +56,25 @@ define(['managerAPI', 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe@1.*/da
             buttonText: 'Doorgaan'
         }],
 
-        prolificid: [{
+        profile: [{
             type: 'quest',
-            name: 'prolificid',
-            scriptUrl: 'prolificid.js'
+            name: 'profile',
+            scriptUrl: 'profile.js'
         }],
 
         intro: [{
             inherit: 'instructions',
             name: 'intro',
             templateUrl: 'intro.jst',
-            title: 'Intro',
-            header: 'Welcome'
+            title: 'Introductie',
+            header: 'Welkom'
         }],
 
-        raceiat_instructions: [{
+        skiniat_instructions: [{
             inherit: 'instructions',
             name: 'instructions',
-            templateUrl: 'raceiat_instructions.jst',
-            title: 'IAT Instructions',
+            templateUrl: 'skiniat_instructions.jst',
+            title: 'IAT Instructies',
             header: 'Implicit Association Test'
         }],
 
@@ -91,59 +92,50 @@ define(['managerAPI', 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe@1.*/da
 
         skiniat: [{
             type: 'time',
-            name: 'siat',
+            name: 'skiniat',
             scriptUrl: 'skiniat.js'
         }],
 
         lastpage: [{
             type: 'message',
             name: 'lastpage',
-            templateUrl: 'lastpage.jst',
+            templateUrl: 'lastpage.showresults.jst',
+            //templateUrl: 'lastpage.jst',
             title: 'End',
             //Uncomment the following if you want to end the study here.
-            last:true, 
+            //last:true, 
             header: 'Studie klaar'
         }], 
         
+        //This task waits until the data are sent to the server.
+        uploading: uploading_task({header: 'Een momentje alsjeblieft.', body:'Even wachten, data wordt verzonden...'}),
+
         //Use if you want to redirect the participants elsewhere at the end of the study
         redirect:
         [{ 
             //type:'redirect', name:'redirecting', url: 'https://app.prolific.co/submissions/complete?cc=CHYHAOC9' 
             //You can use that to go back to prolific: https://app.prolific.co/submissions/complete?cc=YOURCODE
+            type:'redirect', name:'redirecting', url: 'https://www.google.com' 
         }],
-
-        //This task waits until the data are sent to the server.
-        uploading: uploading_task({header: 'just a moment', body:'Please wait, sending data... '})
-        
     });
 
     API.addSequence([
         
-        { type: 'post', path: ['raceSet', 'blackLabels', 'whiteLabels'] },
-
-        //{inherit: 'prolificid'},
-        
+        //{ type: 'post', path: ['raceSet', 'blackLabels', 'whiteLabels'] },
         {inherit: 'intro'},
+        {inherit: 'profile'},
+        // force the instructions to preceed the iat
         {
-            mixer:'random',
-            data:[
+            mixer: 'wrapper',
+            data: [
                 {inherit: 'explicits'},
-
-                // force the instructions to preceed the iat
-                {
-                    mixer: 'wrapper',
-                    data: [
-                        {inherit: 'raceiat_instructions'},
-                        {inherit: 'skiniat'}
-                        //{inherit: 'raceiat'}
-                    ]
-                }
+                {inherit: 'skiniat_instructions'},
+                {inherit: 'skiniat'}
             ]
         },
-
         {inherit: 'uploading'},
         {inherit: 'lastpage'},
-        //{inherit: 'redirect'}
+        {inherit: 'redirect'}
     ]);
 
     return API.script;
