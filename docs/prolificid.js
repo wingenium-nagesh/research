@@ -17,10 +17,10 @@ define(['questAPI'], function(Quest){
 
 	// ### Questions-pp list 4 likes
 	API.addQuestionsSet({
-		id : [{
+		beroep : [{
 		    inherit: 'basicSelect',
-			stem: 'Please enter your Prolific ID',
-			name:'prolificID',
+			stem: 'Beroep',
+			name:'beroep',
 			required: true
 		}]
 	});
@@ -42,7 +42,7 @@ define(['questAPI'], function(Quest){
         {
             inherit:'basicPage', 
             questions: [
-                {inherit:'id'}
+                {inherit:'beroep'}
                         ]
          }
     ]);

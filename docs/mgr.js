@@ -52,7 +52,7 @@ define(['managerAPI', 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe@1.*/da
     API.addTasksSet({
         instructions: [{
             type: 'message',
-            buttonText: 'Continue'
+            buttonText: 'Doorgaan'
         }],
 
         prolificid: [{
@@ -71,12 +71,10 @@ define(['managerAPI', 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe@1.*/da
 
         raceiat_instructions: [{
             inherit: 'instructions',
-            name: 'raceiat_instructions',
+            name: 'instructions',
             templateUrl: 'raceiat_instructions.jst',
             title: 'IAT Instructions',
-            header: 'Implicit Association Test',
-            //Uncomment the following if you want to end the study here.
-            last:true, 
+            header: 'Implicit Association Test'
         }],
 
         explicits: [{
@@ -85,10 +83,16 @@ define(['managerAPI', 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe@1.*/da
             scriptUrl: 'explicits.js'
         }],
 
-        raceiat: [{
+//        raceiat: [{
+//            type: 'time',
+//            name: 'raceiat',
+//            scriptUrl: 'raceiat.js'
+//        }],
+
+        skiniat: [{
             type: 'time',
-            name: 'raceiat',
-            scriptUrl: 'raceiat.js'
+            name: 'siat',
+            scriptUrl: 'skiniat.js'
         }],
 
         lastpage: [{
@@ -97,14 +101,14 @@ define(['managerAPI', 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe@1.*/da
             templateUrl: 'lastpage.jst',
             title: 'End',
             //Uncomment the following if you want to end the study here.
-            //last:true, 
-            header: 'You have completed the study'
+            last:true, 
+            header: 'Studie klaar'
         }], 
         
         //Use if you want to redirect the participants elsewhere at the end of the study
         redirect:
         [{ 
-            type:'redirect', name:'redirecting', url: 'https://app.prolific.co/submissions/complete?cc=CHYHAOC9' 
+            //type:'redirect', name:'redirecting', url: 'https://app.prolific.co/submissions/complete?cc=CHYHAOC9' 
             //You can use that to go back to prolific: https://app.prolific.co/submissions/complete?cc=YOURCODE
         }],
 
@@ -117,7 +121,7 @@ define(['managerAPI', 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe@1.*/da
         
         { type: 'post', path: ['raceSet', 'blackLabels', 'whiteLabels'] },
 
-        {inherit: 'prolificid'},
+        //{inherit: 'prolificid'},
         
         {inherit: 'intro'},
         {
@@ -130,7 +134,8 @@ define(['managerAPI', 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe@1.*/da
                     mixer: 'wrapper',
                     data: [
                         {inherit: 'raceiat_instructions'},
-                        {inherit: 'raceiat'}
+                        {inherit: 'skiniat'}
+                        //{inherit: 'raceiat'}
                     ]
                 }
             ]
@@ -138,7 +143,7 @@ define(['managerAPI', 'https://cdn.jsdelivr.net/gh/minnojs/minno-datapipe@1.*/da
 
         {inherit: 'uploading'},
         {inherit: 'lastpage'},
-        {inherit: 'redirect'}
+        //{inherit: 'redirect'}
     ]);
 
     return API.script;
