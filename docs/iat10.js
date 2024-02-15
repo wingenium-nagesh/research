@@ -130,13 +130,22 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 			//Show a reminder what to do on error, throughout the task
 			remindError : true,
 
-			remindErrorText : '<p align="center" style="font-size:1em; font-family:arial; color:#000000">' +
+/* 			remindErrorText : '<p align="center" style="font-size:1em; font-family:arial; color:#000000">' +
 			'If you make a mistake, a red <font color="#ff0000"><b>X</b></font> will appear. ' +
 			'Press the other key to continue.<p/>',
 
 			remindErrorTextTouch : '<p align="center" style="font-size:1.4em; font-family:arial; color:#000000">' +
 			'If you make a mistake, a red <font color="#ff0000"><b>X</b></font> will appear. ' +
 			'Touch the other side to continue.<p/>',
+ */
+			remindErrorText: '<p align="center" style="font-size:1em; font-family:arial; color:#000000">' +
+			'Als je een fout maakt, verschijnt er een rood <font color="#ff0000"><b>X</b></font>. ' +
+			'Druk op de andere toets om door te gaan.<p/>',
+
+			remindErrorTextTouch: '<p align="center" style="font-size:1.4em; font-family:arial; color:#000000">' +
+			'Als je een fout maakt, verschijnt er een rood <font color="#ff0000"><b>X</b></font>. ' +
+			'Raak de andere kant aan om door te gaan.<p/>',
+
 
 			errorCorrection : true, //Should participants correct error responses?
 			errorFBDuration : 500, //Duration of error feedback display (relevant only when errorCorrection is false)
@@ -147,17 +156,17 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 			leftKey : 'e', 
 			rightKey: 'i',
 			//Text and style for key instructions displayed about the category labels.
-			leftKeyText : 'Press "E" for', 
-			rightKeyText : 'Press "I" for', 
+			leftKeyText : 'Druk op "E" voor', 
+			rightKeyText : 'Druk op "I" voor', 
 			keysCss : {'font-size':'0.8em', 'font-family':'courier', color:'#000000'},
 			//Text and style for the separator between the top and bottom category labels.
-			orText : 'or', 
+			orText : 'of', 
 			orCss : {'font-size':'1.8em', color:'#000000'},
 			
 			instWidth : 99, //The width of the instructions stimulus
 			
-			finalText : 'Press space to continue to the next task', 
-			finalTouchText : 'Touch the bottom green area to continue to the next task',
+			finalText : 'Druk op de spatiebalk (Spacebar) om door te gaan naar de volgende taak', 
+			finalTouchText : 'Raak het onderste groene gebied aan om door te gaan naar de volgende taak',
 
 			touchMaxStimulusWidth : '50%', 
 			touchMaxStimulusHeight : '50%', 
@@ -168,7 +177,7 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 			// the name of the categories and the block's number variables:
 			// leftCategory, rightCategory, leftAttribute and rightAttribute, blockNum, nBlocks.
 			// Notice that this is HTML text.
-			instAttributePractice: '<div><p align="center" style="font-size:20px; font-family:arial">' +
+/* 			instAttributePractice: '<div><p align="center" style="font-size:20px; font-family:arial">' +
 				'<font color="#000000"><u>Part blockNum of nBlocks </u><br/><br/></p>' +
 				'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
 				'Put a left finger on the <b>E</b> key for items that belong to the category <font color="#0000ff">leftAttribute.</font>' +
@@ -177,7 +186,16 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 				'Press the other key to continue.<br/>' +
 				'<u>Go as fast as you can</u> while being accurate.<br/><br/></p>'+
 				'<p align="center">Press the <b>space bar</b> when you are ready to start.</font></p></div>',
-			instAttributePracticeTouch: [
+ */				instAttributePractice: '<div><p align="center" style="font-size:20px; font-family:arial">' +
+				'<font color="#000000"><u>Deel blockNum van nBlocks </u><br/><br/></p>' +
+				'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
+				'Plaats een linker vinger op de <b>E</b>-toets voor items die behoren tot de categorie <font color="#0000ff">leftAttribute.</font>' +
+				'<br/>Plaats een rechter vinger op de <b>I</b>-toets voor items die behoren tot de categorie <font color="#0000ff">rightAttribute</font>.<br/><br/>' +
+				'Als je een fout maakt, verschijnt er een rood <font color="#ff0000"><b>X</b></font>. ' +
+				'Druk op de andere toets om door te gaan.<br/>' +
+				'<u>Ga zo snel mogelijk</u> terwijl je nauwkeurig bent.<br/><br/></p>'+
+				'<p align="center">Druk op de <b>spatiebalk</b> wanneer je klaar bent om te beginnen.</font></p></div>',
+/* 				instAttributePracticeTouch: [
 				'<div>',
 					'<p align="center">',
 						'<u>Part blockNum of nBlocks</u>',
@@ -193,8 +211,24 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 					'<p align="center">Touch the <b>lower </b> green area to start.</p>',
 				'</div>'
 			].join('\n'),
-
-			instCategoriesPractice: '<div><p align="center" style="font-size:20px; font-family:arial">' +
+ */
+			instAttributePracticeTouch: [
+				'<div>',
+					'<p align="center">',
+						'<u>Deel blockNum van nBlocks</u>',
+					'</p>',
+					'<p align="left" style="margin-left:5px">',
+						'<br/>',
+						'Plaats een linker vinger over het <b>linker</b> groene gebied voor items die behoren tot de categorie <font color="#0000ff">leftAttribute</font>.<br/>',
+						'Plaats een rechter vinger over het <b>rechter</b> groene gebied voor items die behoren tot de categorie <font color="#0000ff">rightAttribute</font>.<br/>',
+						'Items verschijnen één voor één.<br/>',
+						'<br/>',
+						'Als je een fout maakt, verschijnt er een rood <font color="#ff0000"><b>X</b></font>. Raak de andere kant aan. <u>Ga zo snel mogelijk</u> terwijl je nauwkeurig bent.',
+					'</p>',
+					'<p align="center">Raak het <b>onderste</b> groene gebied aan om te beginnen.</p>',
+				'</div>'
+			].join('\n'),
+/* 			instCategoriesPractice: '<div><p align="center" style="font-size:20px; font-family:arial">' +
 				'<font color="#000000"><u>Part blockNum of nBlocks </u><br/><br/></p>' +
 				'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
 				'Put a left finger on the <b>E</b> key for items that belong to the category <font color="#336600">leftCategory</font>. ' +
@@ -220,8 +254,34 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 					'<p align="center">Touch the <b>lower </b> green area to start.</p>',
 				'</div>'
 			].join('\n'),
-
-			instFirstCombined : '<div><p align="center" style="font-size:20px; font-family:arial">' +
+ */
+			instCategoriesPractice: '<div><p align="center" style="font-size:20px; font-family:arial">' +
+			'<font color="#000000"><u>Deel blockNum van nBlocks </u><br/><br/></p>' +
+			'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
+			'Plaats een linker vinger op de <b>E</b>-toets voor items die behoren tot de categorie <font color="#336600">leftCategory</font>. ' +
+			'<br/>Plaats een rechter vinger op de <b>I</b>-toets voor items die behoren tot de categorie <font color="#336600">rightCategory</font>.<br/>' +
+			'Items verschijnen één voor één.<br/><br/>' +
+			'Als je een fout maakt, verschijnt er een rood <font color="#ff0000"><b>X</b></font>. ' +
+			'Druk op de andere toets om door te gaan.<br/>' +
+			'<u>Ga zo snel mogelijk</u> terwijl je nauwkeurig bent.<br/><br/></p>'+
+			'<p align="center">Druk op de <b>spatiebalk</b> wanneer je klaar bent om te beginnen.</font></p></div>',
+			instCategoriesPracticeTouch: [
+				'<div>',
+					'<p align="center">',
+						'<u>Deel blockNum van nBlocks</u>',
+					'</p>',
+					'<p align="left" style="margin-left:5px">',
+						'<br/>',
+						'Plaats een linker vinger over het <b>linker</b> groene gebied voor items die behoren tot de categorie <font color="#336600">leftCategory</font>.<br/>',
+						'Plaats een rechter vinger over het <b>rechter</b> groene gebied voor items die behoren tot de categorie <font color="#336600">rightCategory</font>.<br/>',
+						'Items verschijnen één voor één.<br/>',
+						'<br/>',
+						'Als je een fout maakt, verschijnt er een rood <font color="#ff0000"><b>X</b></font>. Raak de andere kant aan. <u>Ga zo snel mogelijk</u> terwijl je nauwkeurig bent.',
+					'</p>',
+					'<p align="center">Raak het <b>onderste</b> groene gebied aan om te beginnen.</p>',
+				'</div>'
+			].join('\n'),
+/* 			instFirstCombined : '<div><p align="center" style="font-size:20px; font-family:arial">' +
 				'<font color="#000000"><u>Part blockNum of nBlocks </u><br/><br/></p>' +
 				'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
 				'Use the <b>E</b> key for <font color="#336600">leftCategory</font> and for <font color="#0000ff">leftAttribute</font>.<br/>' +
@@ -246,8 +306,33 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 						'<p align="center">Touch the <b>lower </b> green area to start.</p>',
 				'</div>'
 			].join('\n'),
-
-			instSecondCombined : '<div><p align="center" style="font-size:20px; font-family:arial">' +
+ */
+			instFirstCombined: '<div><p align="center" style="font-size:20px; font-family:arial">' +
+			'<font color="#000000"><u>Deel blockNum van nBlocks </u><br/><br/></p>' +
+			'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
+			'Gebruik de <b>E</b>-toets voor <font color="#336600">leftCategory</font> en voor <font color="#0000ff">leftAttribute</font>.<br/>' +
+			'Gebruik de <b>I</b>-toets voor <font color="#336600">rightCategory</font> en voor  <font color="#0000ff">rightAttribute</font>.<br/>' +
+			'Elk item behoort tot slechts één categorie.<br/><br/>' +
+			'Als je een fout maakt, verschijnt er een rood <font color="#ff0000"><b>X</b></font>. ' +
+			'Druk op de andere toets om door te gaan.<br/>' + 
+			'<u>Ga zo snel mogelijk</u> terwijl je nauwkeurig bent.<br/><br/></p>' +
+			'<p align="center">Druk op de <b>spatiebalk</b> wanneer je klaar bent om te beginnen.</font></p></div>',
+			instFirstCombinedTouch:[
+						'<div>',
+							'<p align="center">',
+								'<u>Deel blockNum van nBlocks</u>',
+							'</p>',
+							'<br/>',
+							'<br/>',
+							'<p align="left" style="margin-left:5px">',
+								'Plaats een linker vinger over het <b>linker</b> groene gebied voor <font color="#336600">leftCategory</font> items en voor <font color="#0000ff">leftAttribute</font>.</br>',
+								'Plaats een rechter vinger over het <b>rechter</b> groene gebied voor <font color="#336600">rightCategory</font> items en voor <font color="#0000ff">rightAttribute</font>.</br>',
+									'Als je een fout maakt, verschijnt er een rood <font color="#ff0000"><b>X</b></font>. Raak de andere kant aan. <u>Ga zo snel mogelijk</u> terwijl je nauwkeurig bent.</br>',
+								'</p>',
+								'<p align="center">Raak het <b>onderste</b> groene gebied aan om te beginnen.</p>',
+						'</div>'
+					].join('\n'),
+/* 			instSecondCombined : '<div><p align="center" style="font-size:20px; font-family:arial">' +
 				'<font color="#000000"><u>Part blockNum of nBlocks </u><br/><br/></p>' +
 				'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
 				'This is the same as the previous part.<br/>' +
@@ -270,9 +355,32 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 					'</p>',
 					'<p align="center">Touch the <b>lower </b> green area to start.</p>',
 				'</div>'
-			].join('\n'),
+			].join('\n'), */
+			instSecondCombined: '<div><p align="center" style="font-size:20px; font-family:arial">' +
+			'<font color="#000000"><u>Deel blockNum van nBlocks </u><br/><br/></p>' +
+			'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
+			'Dit is hetzelfde als het vorige deel.<br/>' +
+			'Gebruik de <b>E</b>-toets voor <font color="#336600">leftCategory</font> en voor <font color="#0000ff">leftAttribute</font>.<br/>' +
+			'Gebruik de <b>I</b>-toets voor <font color="#336600">rightCategory</font> en voor  <font color="#0000ff">rightAttribute</font>.<br/>' +
+			'Elk item behoort tot slechts één categorie.<br/><br/>' +
+			'<u>Ga zo snel mogelijk</u> terwijl je nauwkeurig bent.<br/><br/></p>' +
+			'<p align="center">Druk op de <b>spatiebalk</b> wanneer je klaar bent om te beginnen.</font></p></div>',
+			instSecondCombinedTouch:[
+			'<div>',
+				'<p align="center"><u>Deel blockNum van nBlocks</u></p>',
+				'<br/>',
+				'<br/>',
 
-			instSwitchCategories : '<div><p align="center" style="font-size:20px; font-family:arial">' +
+				'<p align="left" style="margin-left:5px">',
+					'Plaats een linker vinger over het <b>linker</b> groene gebied voor <font color="#336600">leftCategory</font> items en voor <font color="#0000ff">leftAttribute</font>.<br/>',
+					'Plaats een rechter vinger over het <b>rechter</b> groene gebied voor <font color="#336600">rightCategory</font> items en voor <font color="#0000ff">rightAttribute</font>.<br/>',
+					'<br/>',
+					'<u>Ga zo snel mogelijk</u> terwijl je nauwkeurig bent.<br/>',
+				'</p>',
+				'<p align="center">Raak het <b>onderste</b> groene gebied aan om te beginnen.</p>',
+			'</div>'
+			].join('\n'),
+/* 			instSwitchCategories : '<div><p align="center" style="font-size:20px; font-family:arial">' +
 				'<font color="#000000"><u>Part blockNum of nBlocks </u><br/><br/></p>' +
 				'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
 				'<b>Watch out, the labels have changed position!</b><br/>' +
@@ -297,7 +405,32 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 						'<p align="center">Touch the <b>lower </b> green area to start.</p>',
 				'</div>'
 			].join('\n'),
-
+ */
+			instSwitchCategories: '<div><p align="center" style="font-size:20px; font-family:arial">' +
+			'<font color="#000000"><u>Deel blockNum van nBlocks </u><br/><br/></p>' +
+			'<p style="font-size:20px; text-align:left; vertical-align:bottom; margin-left:10px; font-family:arial">' +
+			'<b>Let op, de labels zijn van positie veranderd!</b><br/>' +
+			'Gebruik de linker vinger op de <b>E</b>-toets voor <font color="#336600">leftCategory</font>.<br/>' +
+			'Gebruik de rechter vinger op de <b>I</b>-toets voor <font color="#336600">rightCategory</font>.<br/><br/>' +
+			'<u>Ga zo snel mogelijk</u> terwijl je nauwkeurig bent.<br/><br/></p>' +
+			'<p align="center">Druk op de <b>spatiebalk</b> wanneer je klaar bent om te beginnen.</font></p></div>',
+			instSwitchCategoriesTouch: [
+			'<div>',
+				'<p align="center">',
+					'<u>Deel blockNum van nBlocks</u>',
+				'</p>',
+				'<p align="left" style="margin-left:5px">',
+					'<br/>',
+					'Let op, de labels zijn van positie veranderd!<br/>',
+						'Plaats een linker vinger over het <b>linker</b> groene gebied voor <font color="#336600">leftCategory</font> items.<br/>',
+						'Plaats een rechter vinger over het <b>rechter</b> groene gebied voor <font color="#336600">rightCategory</font> items.<br/>',
+						'Items verschijnen één voor één.',
+						'<br/>',
+						'Als je een fout maakt, verschijnt er een rood <font color="#ff0000"><b>X</b></font>. Raak de andere kant aan. <u>Ga zo snel mogelijk</u> terwijl je nauwkeurig bent.<br/>',
+					'</p>',
+					'<p align="center">Raak het <b>onderste</b> groene gebied aan om te beginnen.</p>',
+			'</div>'
+			].join('\n'),
 			instThirdCombined : 'instFirstCombined', //this means that we're going to use the instFirstCombined property for the third combined block as well. You can change that.
 			instFourthCombined : 'instSecondCombined', //this means that we're going to use the instSecondCombined property for the fourth combined block as well. You can change that.
 			instThirdCombinedTouch : 'instFirstCombined', //this means that we're going to use the instFirstCombined property for the third combined block as well. You can change that.
@@ -311,7 +444,7 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 			//fb_moderate_Att1WithCatA_Att2WithCatB : 'Your responses suggested a moderate automatic preference for categoryB over categoryA.',
 			//fb_slight_Att1WithCatA_Att2WithCatB : 'Your responses suggested a slight automatic preference for categoryB over categoryA.',
 			//fb_equal_CatAvsCatB : 'Your responses suggested no automatic preference between categoryA and categoryB.',
-			fb_strong_Att1WithCatA_Att2WithCatB : "You were much faster at sorting 'categoryA' with 'attribute1' and 'categoryB' with 'attribute2' than 'categoryB' with 'attribute1' and 'categoryA' with 'attribute2'",
+/* 			fb_strong_Att1WithCatA_Att2WithCatB : "You were much faster at sorting 'categoryA' with 'attribute1' and 'categoryB' with 'attribute2' than 'categoryB' with 'attribute1' and 'categoryA' with 'attribute2'",
 			fb_moderate_Att1WithCatA_Att2WithCatB : "You were moderately faster at sorting 'categoryA' with 'attribute1' and 'categoryB' with 'attribute2' than 'categoryB' with 'attribute1' and 'categoryA' with 'attribute2'",
 			fb_slight_Att1WithCatA_Att2WithCatB : "You were slightly faster at sorting 'categoryA' with 'attribute1' and 'categoryB' with 'attribute2' than 'categoryB' with 'attribute1' and 'categoryA' with 'attribute2'",
 			fb_equal_CatAvsCatB : "You were about equally fast at sorting 'categoryA' with 'attribute1' and 'categoryB' with 'attribute2' and at sorting 'categoryB' with 'attribute1' and 'categoryA' with 'attribute2'.",
@@ -320,6 +453,15 @@ define(['pipAPI','pipScorer','underscore'], function(APIConstructor, Scorer, _) 
 			manyErrors: 'There were too many errors made to determine a result.',
 			tooFast: 'There were too many fast trials to determine a result.',
 			notEnough: 'There were not enough trials to determine a result.'
+ */			fb_strong_Att1WithCatA_Att2WithCatB: "Je was veel sneller met het sorteren van 'categorieA' met 'attribuut1' en 'categorieB' met 'attribuut2' dan 'categorieB' met 'attribuut1' en 'categorieA' met 'attribuut2'.",
+			fb_moderate_Att1WithCatA_Att2WithCatB: "Je was matig sneller met het sorteren van 'categorieA' met 'attribuut1' en 'categorieB' met 'attribuut2' dan 'categorieB' met 'attribuut1' en 'categorieA' met 'attribuut2'.",
+			fb_slight_Att1WithCatA_Att2WithCatB: "Je was iets sneller met het sorteren van 'categorieA' met 'attribuut1' en 'categorieB' met 'attribuut2' dan 'categorieB' met 'attribuut1' en 'categorieA' met 'attribuut2'.",
+			fb_equal_CatAvsCatB: "Je was ongeveer even snel met het sorteren van 'categorieA' met 'attribuut1' en 'categorieB' met 'attribuut2' als met het sorteren van 'categorieB' met 'attribuut1' en 'categorieA' met 'attribuut2'.",
+			
+			// Foutmeldingen in de feedback
+			manyErrors: 'Er werden te veel fouten gemaakt om een resultaat te bepalen.',
+			tooFast: 'Er waren te veel snelle pogingen om een resultaat te bepalen.',
+			notEnough: 'Er waren niet genoeg pogingen om een resultaat te bepalen.'
 		};
 
 		// extend the "current" object with the default

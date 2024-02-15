@@ -17,67 +17,64 @@
 	<p class='lead'>
 <b>Dank je wel voor je deelname!</b>
 <br/><br/>
-
-    In this study, we measured your automatically-activated associations between the concepts '<%=category1%>' and '<%=category2%>' with the concepts '<%=att1%>' and '<%=att2%>'. 
-	Your automatically-activated association might be different than the association that you explicitly endorse. 	
-	For instance, you might consciously associate '<%=category1%>' with the concept '<%=att2%>', 
-	but show an automatic association of '<%=category1%>' with '<%=att1%>'.<br/>
-	To measure your automatically-activated association, we used the Implicit Association Test (the IAT). 
-	Here are your results:
+	In deze studie hebben we je automatisch geactiveerde associaties gemeten tussen de concepten '<%=category1%>' en '<%=category2%>' met de concepten '<%=att1%>' en '<%=att2%>'. 
+	Je automatisch geactiveerde associatie kan verschillen van de associatie die je expliciet onderschrijft. 
+	Bijvoorbeeld, je kunt bewust '<%=category1%>' associëren met het concept '<%=att2%>', 
+	maar een automatische associatie van '<%=category1%>' met '<%=att1%>' laten zien.<br/>
+	Om je automatisch geactiveerde associatie te meten, hebben we de Impliciete Associatie Test (de IAT) gebruikt. 
+	Hier zijn je resultaten:
 	</p>
 	<b><%= global.skiniat.feedback %></b>
 	<br/><br/>
 
 	<p class='lead'><b>Disclaimer:</b><br/>
-	These results are not a definitive assessment of your automatically-activated associations. 
-	The results may be influenced by variables related to the test 
-	(e.g., the category labels or particular items used to represent the categories on the IAT) 
-	or the person (e.g., how tired you are). 
-	The results are provided for educational purposes only.</p>
+	Deze resultaten vormen geen definitieve beoordeling van je automatisch geactiveerde associaties. 
+	De resultaten kunnen worden beïnvloed door variabelen die verband houden met de test 
+	(bijvoorbeeld de categorieën labels of specifieke items die worden gebruikt om de categorieën op de IAT te vertegenwoordigen) 
+	of de persoon zelf (bijvoorbeeld hoe moe je bent). 
+	De resultaten worden alleen ter educatieve doeleinden verstrekt.</p>
 
-	<p class='lead'><b>How Does The IAT Work?</b></p>
-	<p class='lead'>The IAT measures the strength of associations between concepts 
-	(e.g., <%=category1%>, <%=category2%>) and attributes (e.g., <%=att1%>, <%=att2%>). 
-	The main idea is that making a response is easier when 
-	closely related items share the same response key. 
-	We would say that one has an automatically activated association of 
-	<%=category1%> with <%=att1%> and <%=category2%> with <%=att2%> 
-	if they are faster to categorize items 
-	when <%=category1%> and <%=att1%> share a response key 
-	relative to when <%=category2%> and <%=att1%> share a response key. <br/><br/>
-	Many researchers consider associations of Black and White people with 
-	the concepts Good and Bad an estimate of 
-	automatic preference between Black and White people. 
-	An automatic preference is your very first preference betweens people, groups, or other objects. 
-	An automatic preference might be activated even if people do not endorse that preference. 
+	<p class='lead'><b>Hoe Werkt de IAT?</b></p>
+	<p class='lead'>De IAT meet de sterkte van associaties tussen concepten 
+	(bijvoorbeeld <%=category1%>, <%=category2%>) en attributen (bijvoorbeeld <%=att1%>, <%=att2%>). 
+	Het belangrijkste idee is dat het geven van een reactie gemakkelijker is wanneer 
+	sterk gerelateerde items dezelfde reactietoets delen. 
+	We zouden zeggen dat iemand een automatisch geactiveerde associatie heeft van 
+	<%=category1%> met <%=att1%> en <%=category2%> met <%=att2%> 
+	als ze sneller zijn met het categoriseren van items 
+	wanneer <%=category1%> en <%=att1%> dezelfde reactietoets delen 
+	ten opzichte van wanneer <%=category2%> en <%=att1%> dezelfde reactietoets delen. <br/><br/>
+	Veel onderzoekers beschouwen associaties van zwart en witte mensen met 
+	de concepten Goed en Slecht als een schatting van 
+	automatische voorkeur tussen zwart en witte mensen. 
+	Een automatische voorkeur is je aller eerste voorkeur tussen mensen, groepen of andere objecten. 
+	Een automatische voorkeur kan worden geactiveerd, zelfs als mensen die voorkeur niet onderschrijven. 
 	<br/><br/>
-	Any single IAT is unlikely to predict behavior well for a specific individual. 
-	In the aggregate, the IAT can predict behavior 
-	such as discrimination in hiring and promotion, medical treatment, 
-	and decisions related to criminal justice. </p>
+	Een enkele IAT voorspelt waarschijnlijk het gedrag niet goed voor een specifiek individu. 
+	In het algemeen kan de IAT gedrag voorspellen 
+	zoals discriminatie bij werving en promotie, medische behandeling, 
+	en beslissingen met betrekking tot strafrechtelijke rechtvaardigheid. </p>
 
-	<p class='lead'><b>Does The Order In Which I Took The IAT Matter?</b></p>
-	<p class='lead'>Yes, the order in which you take the IAT can influence your overall results. 
-	But, the effect is very small. 
-	So if you first pair <%=category1%> + <%=att1%> / <%=category2%> + <%=att2%> 
-	and then pair <%=category1%> + <%=att2%> / <%=category2%>  + <%=att1%>, 
-	your results might be a just a tiny bit different 
-	than they would be if you had done the reverse pairing first. 
-	To minimize the order effect, we give more practice trials 
-	before the second pairing than we did before the first pairing. 
-	We also randomly assign participants to one of the two possible orderings, 
-	so half of the test-takers complete 
-	<%=category1%> + <%=att1%> / <%=category2%> + <%=att2%> 
-	and then <%=category1%> + <%=att2%> / <%=category2%>  + <%=att1%>, 
-	and the other half get the opposite order.</p>
 
-	<p class='lead'>Please press the button below to complete the study.</p>
-	</p>
+	<p class='lead'><b>Maakt de volgorde waarin ik de IAT heb gedaan uit?</b></p>
+	<p class='lead'>Ja, de volgorde waarin je de IAT uitvoert kan invloed hebben op je algehele resultaten. 
+	Maar, het effect is zeer klein. 
+	Dus als je eerst <%=category1%> + <%=att1%> / <%=category2%> + <%=att2%> koppelt 
+	en dan <%=category1%> + <%=att2%> / <%=category2%>  + <%=att1%>, 
+	kunnen je resultaten ietsjes verschillen 
+	dan wanneer je eerst de omgekeerde koppeling had gedaan. 
+	Om het effect van de volgorde te minimaliseren, geven we meer oefentests 
+	vóór de tweede koppeling dan vóór de eerste koppeling. 
+	We wijzen deelnemers ook willekeurig toe aan een van de twee mogelijke volgordes, 
+	zodat de helft van de testpersonen <%=category1%> + <%=att1%> / <%=category2%> + <%=att2%> 
+	doet en dan <%=category1%> + <%=att2%> / <%=category2%>  + <%=att1%>, 
+	en de andere helft de omgekeerde volgorde krijgt.</p>
+
+	<p class='lead'>Druk op de onderstaande knop om de studie af te ronden.</p>
 	<div class="text-center proceed" style="margin: 30px auto 10px;">
-		<button pi-message-done type="button" class="btn btn-primary">
-			Finish
-		</button>
-	</div>
+	<button pi-message-done type="button" class="btn btn-primary">
+		Afronden
+	</button>
 </div>
 
 
