@@ -2,33 +2,41 @@ define(['questAPI'], function(Quest){
     let API = new Quest();
     let isTouch = API.getGlobal().$isTouch;
 	
-    /**
-	* Page prototype
-	*/
     API.addPagesSet('basicPage',{
-        noSubmit:false, //Change to true if you don't want to show the submit button.
         header: 'Introductie',
-        decline: false,
-        declineText: isTouch ? 'Decline' : 'Decline to Answer', 
+        prev:true,
+        prevText:'Vorige',
+        noSubmit:false, //Change to true if you don't want to show the submit button.
+        submitText:'Volgende',
+        decline:true,
+        declineText: isTouch ? 'Weigeren' : 'Geen antwoord', 
         autoFocus:true,
-        progressBar:  'Page <%= pagesMeta.number %> van 3'
+        numbered:false,
+        //animate:'slide fade drop-in',
+        //progressBar:'Page <%= pagesMeta.number %> van 3',
+        questions: [
+            {type:'dropdown', stem:'Wat is jouw beroep?', name:'beroep',required:true,answers: [{text:'AIOS', value:0},{text:'Verpleegkundige', value:1},{text:'Verloskundige', value:2},{text:'Gynaecoloog', value:3}]},
+            {type:'dropdown', stem:'Wat is jouw geslacht?', name:'geslacht',required:true,answers: [{text:'Man', value:0},{text:'Vrouw', value:1},{text:'Anders', value:0}]},
+            {type:'textNumber', stem:'Wat is jouw leeftijd?', name:'leeftijd',min:18,max:70,required:true,errorMsg: {max:"Deelnemers moeten tussen 18 en 70 jaar oud zijn",number:"Leeftijd moet een geldig nummer zijn"}}       
+        ]
     });
-	
-    /**
-	* Question prototypes
-	*/
+    API.addSequence([{inherit:'basicPage'}]);
+    return API.script;
+});
+/*     
+	//Question prototypes
     API.addQuestionsSet('basicQ',{
-        decline: 'false',
-        required : true, 		
+        decline:false,
+        required: true, 		
         errorMsg: {
             required: isTouch
-                ? 'Please select an answer, or click \'Decline\'' 
-                : 'Please select an answer, or click \'Decline to Answer\''
+            ? 'Selecteer alstublieft een antwoord, of klik op \'Weigeren\''
+            : 'Selecteer alstublieft een antwoord, of klik op \'Geen antwoord\''
         },
-        autoSubmit:'false',
+        autoSubmit:false,
         noSubmit:false, //Change to true if you don't want to show the submit button.
-        numericValues:'true',
-        help: '<%= pagesMeta.number < 3 %>',
+        numericValues:true,
+        help:'<%= pagesMeta.number < 3 %>',
         //helpText: 'Tip: For quick response, click to select your answer, and then click again to submit.'
     });
 
@@ -53,9 +61,8 @@ define(['questAPI'], function(Quest){
     });
 
 	
-    /**
-	*Specific questions
-	*/	
+	// Specific questions
+		
     API.addQuestionsSet('beroep',{
         inherit : 'profession',
         name: 'beroep',
@@ -63,7 +70,8 @@ define(['questAPI'], function(Quest){
     });
 
     API.addQuestionsSet('leeftijd',{
-            type: 'textNumber',
+            name:'age',
+            type:'textNumber',
             stem: 'Wat is jouw leeftijd',
             min:18,
             max:70,
@@ -75,7 +83,7 @@ define(['questAPI'], function(Quest){
         });
 
     API.addQuestionsSet('geslacht',{
-        inherit : 'basicDropdown',
+        inherit: 'basicDropdown',
         name: 'geslacht',
         stem: 'Wat is jouw geslacht?',
         answers: [
@@ -113,3 +121,5 @@ define(['questAPI'], function(Quest){
 
     return API.script;
 });
+
+*/

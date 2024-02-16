@@ -1,14 +1,16 @@
 <html>
     <head>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/minnojs/minno-quest@0.3/dist/main.css" />
+		<link rel="stylesheet" href="main.css" />
 		<style type="text/css">
         .container {padding-top: 15px;}
 		</style>
 	
         <script>
             // load MinnoJS from the CDN (you probably don't need to change this)
+            //<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/minnojs/minno-quest@0.3/dist/main.css" />
             var scriptTag                = document.createElement('script');
-            scriptTag.src                = 'https://cdn.jsdelivr.net/gh/minnojs/minno-quest@0.3/dist/pi-minno.js';
+            //scriptTag.src                = 'https://cdn.jsdelivr.net/gh/minnojs/minno-quest@0.3/dist/pi-minno.js';
+            scriptTag.src                = 'pi-minno.js';
             scriptTag.onload             = onLoad;
             scriptTag.onreadystatechange = onLoad;
             document.head.appendChild(scriptTag);
@@ -31,6 +33,7 @@
                 
                 // Run your study (just set the correct URL)
                 minnoJS(canvas, 'mgr.js');
+                //minnoJS(canvas, 'profile.js');
                 
                 // We need to wait a few miliseconds for Qualtrics to register the value that we entered
                 minnoJS.onEnd = function () { setTimeout(proceed, 100); }
