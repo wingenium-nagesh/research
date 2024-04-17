@@ -49,14 +49,10 @@ define(['pipAPI',  'iat10.js'], function(APIConstructor, iatExtension){
 		'Blij', 'Spectaculair', 'Aantrekkelijk', 'Vreugde', 'Opwinding', 'Lachen', 'Aantrekkelijk', 'Heerlijk', 'Fantastisch', 'Glorieus', 'Aangenaam', 'Mooi',
 		'Geweldig', 'Blij', 'Mooi', 'Fantastisch', 'Vieren', 'Genieten', 'Prachtig', 'Triomf']);
     var negWords = API.shuffle([
-		'Misbruik', 'Verdriet', 'Vergif', 'Bedroefd',
-		'Pijn', 'Verachten', 'Mislukking', 'Vervelend',
-		'Boos', 'Afschuw hebben van', 'Afschuwelijk', 'Negatief',
-		'Lelijk', 'Vuil', 'Vies', 'Kwaad',
-		'Verrot', 'Ergeren', 'Ramp', 'Afschuwelijk',
-		'Hoon', 'Afschuwelijk', 'Walging', 'Haat',
-		'Vernederen', 'Egoïstisch', 'Tragisch', 'Hinderlijk',
-		'Haat', 'Pijnlijk', 'Walgelijk', 'Vies']);
+		'Misbruik', 'Verdriet', 'Vergif', 'Bedroefd', 'Pijn', 'Verachten', 'Mislukking', 'Vervelend',
+		'Boos', 'Afschuw hebben van', 'Afschuwelijk', 'Negatief', 'Lelijk', 'Vuil', 'Vies', 'Kwaad',
+		'Verrot', 'Ergeren', 'Ramp', 'Afschuwelijk', 'Hoon', 'Afschuwelijk', 'Walging', 'Haat',
+		'Vernederen', 'Egoïstisch', 'Tragisch', 'Hinderlijk', 'Haat', 'Pijnlijk', 'Walgelijk', 'Vies']);
 
     var darkMedia = []; 
 	for(var dImage = 0; dImage < darkImages.length; dImage++)
