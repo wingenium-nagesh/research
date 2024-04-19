@@ -1,0 +1,23 @@
+,Intervention Group Difference,Control Group Difference,U Statistic,P-Value,Adjusted P-Value
+Question 1,-7,-4,1774.5,0.7358707884226063,Not Significant
+Question 2,40,0,2360.5,0.00023425403038583616,Significant
+Question 3,10,-8,2180.5,0.004624371754995826,Not Significant
+Question 4,8,-4,1998.5,0.0781650306352264,Not Significant
+Question 5,9,1,1830.5,0.442319604543848,Not Significant
+Question 6,-24,-11,1778.0,0.7235567220382721,Not Significant
+Question 7,27,-9,2409.0,8.229609193597843e-05,Significant
+Question 8,-4,-6,1897.5,0.22643733312356917,Not Significant
+Question 9,5,1,1753.0,0.833414080466085,Not Significant
+Question 10,29,0,2141.0,0.01519858066752833,Not Significant
+Question 11,1,-2,1821.5,0.4500723070500726,Not Significant
+Question 12,2,7,1464.0,0.08919985353675235,Not Significant
+Question 13a,8,-4,2002.5,0.06433759321876872,Not Significant
+Question 13b,1,-13,2284.5,0.00011181582841922761,Significant
+Question 13c,10,-3,1983.0,0.10379276912040564,Not Significant
+Question 13d,13,-4,2072.5,0.02902261003432261,Not Significant
+Question 13e,15,-3,2068.5,0.02719671496448791,Not Significant
+Question 13f,15,-6,2163.0,0.008169721882310793,Not Significant
+Question 13g,15,-9,2299.5,0.0002978221091511365,Significant
+Question 13h,12,-6,2131.5,0.00915553831913965,Not Significant
+Question 13i,12,-9,2265.0,0.0003974972194768339,Significant
+Question Total,51,-70,2343.5,0.0012695654673893807,Significant

@@ -1,0 +1,9 @@
+,group,t1_median,t1_min,t1_max,t2_median,t2_min,t2_max,diff_median,diff_min,diff_max
+0,Intervention,9.0,0,16,12.0,0,19,3.0,-13,17
+1,Controle,10.0,4,15,10.0,0,18,0.0,-15,9
+Years of Education,0 Years,0.0,3,0.005
+Years of Education,1-5 years,2.0,2,0.005
+Years of Education,11-15 years,15.0,7,0.005
+Years of Education,16-20 years,12.0,2,0.005
+Years of Education,6-10 years,24.0,16,0.005
+Years of Education,Unknown,40.0,7,0.005
